@@ -48,4 +48,17 @@ public class ParkingBoyTest {
         assertEquals(car01,carTest01);
         assertEquals(car02,carTest02);
     }
+    @Test
+    void should_return_wrong_when_parkingboy_given_customer_nullTicket(){
+        //give
+        Car car = new Car();
+        ParkingTicket parkingTicket = null;
+        ParkingBoy parkingBoy = new ParkingBoy();
+        parkingBoy.park(car);
+        //when
+        Car carTest = parkingBoy.fetch(parkingTicket);
+        //then
+        assertEquals(null,carTest);
+    }
+
 }

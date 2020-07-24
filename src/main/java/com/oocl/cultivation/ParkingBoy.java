@@ -8,6 +8,7 @@ public class ParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
+
         Car car = parkingLot.findCar(parkingTicket);
         return car;
     }
