@@ -1,17 +1,16 @@
 package com.oocl.cultivation;
 
 public class ParkingBoy {
+    ParkingLot parkingLot = new ParkingLot();
     public ParkingTicket park(Car car) {
-        ParkingTicket parkingTicket = new ParkingTicket();
+        ParkingTicket parkingTicket = parkingLot.putCar(car);
         return parkingTicket;
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        Car car = new Car();
+        Car car = parkingLot.findCar(parkingTicket);
         return car;
     }
 
-    public Car find(ParkingTicket parkingTicket01) {
-        return null;
-    }
+
 }
