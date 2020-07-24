@@ -2,6 +2,7 @@ package com.oocl.cultivation;
 
 public class ParkingBoy {
     public ParkingTicket parking(Car car) {
-        return null;
+        ParkingTicket parkingTicket = new ParkingTicket();
+        return parkingTicket;
     }
 }
