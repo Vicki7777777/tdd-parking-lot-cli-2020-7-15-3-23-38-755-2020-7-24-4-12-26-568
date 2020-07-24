@@ -10,4 +10,8 @@ public class ParkingBoy {
         Car car = new Car();
         return car;
     }
+
+    public Car find(ParkingTicket parkingTicket01) {
+        return null;
+    }
 }
