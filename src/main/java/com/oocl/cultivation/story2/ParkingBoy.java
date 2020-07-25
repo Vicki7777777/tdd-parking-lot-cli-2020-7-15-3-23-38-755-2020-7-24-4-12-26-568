@@ -7,16 +7,20 @@ public class ParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-
         return parkingLot.findCar(parkingTicket);
     }
 
     public String checkTicketMessage(ParkingTicket parkingTicket){
-        String string = "";
-        if(!parkingLot.checkTicket(parkingTicket)){
-            string = "Unrecognized parking ticket.";
+        String errorStr = "";
+        if(parkingTicket == null){
+            errorStr = "Please provide your parking ticket.";
+            return errorStr;
         }
-        return string;
+        if(!parkingLot.checkTicket(parkingTicket)){
+            errorStr = "Unrecognized parking ticket.";
+            return errorStr;
+        }
+        return errorStr;
     }
 
 
