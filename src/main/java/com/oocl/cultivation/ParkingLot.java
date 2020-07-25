@@ -16,4 +16,8 @@ public class ParkingLot {
         Car findResultCar = ticket_car.get(parkingTicket);
         return findResultCar;
     }
+
+    public boolean checkTicket(ParkingTicket parkingTicket) {
+        return true;
+    }
 }
