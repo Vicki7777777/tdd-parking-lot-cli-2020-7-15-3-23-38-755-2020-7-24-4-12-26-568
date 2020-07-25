@@ -13,11 +13,29 @@ public class ParkingLot {
     }
 
     public Car findCar(ParkingTicket parkingTicket) {
-        Car findResultCar = ticket_car.get(parkingTicket);
-        return findResultCar;
+        Car findResultCar = new Car();
+        if(checkTicket(parkingTicket)){
+            findResultCar = ticket_car.get(parkingTicket);
+            ticket_car.remove(parkingTicket);
+            return findResultCar;
+        }else {
+            return null;
+        }
     }
 
     public boolean checkTicket(ParkingTicket parkingTicket) {
-        return true;
+        if((parkingTicket == null) || (ticket_car.get(parkingTicket) == null)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public HashMap<ParkingTicket, Car> getTicket_car() {
+        return ticket_car;
+    }
+
+    public void setTicket_car(HashMap<ParkingTicket, Car> ticket_car) {
+        this.ticket_car = ticket_car;
     }
 }
