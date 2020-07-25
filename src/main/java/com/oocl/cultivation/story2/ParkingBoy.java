@@ -2,11 +2,11 @@ package com.oocl.cultivation.story2;
 
 public class ParkingBoy {
     ParkingLot parkingLot = new ParkingLot();
-    public ParkingTicket park(Car car) {
+    public ParkingTicket park(Car car,ParkingLot parkingLot) {
         return parkingLot.putCar(car);
     }
 
-    public Car fetch(ParkingTicket parkingTicket) {
+    public Car fetch(ParkingTicket parkingTicket,ParkingLot parkingLot) {
         return parkingLot.findCar(parkingTicket);
     }
 

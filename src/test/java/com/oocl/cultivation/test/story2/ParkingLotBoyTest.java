@@ -11,7 +11,8 @@ public class ParkingLotBoyTest {
         //given
         Customer customer = new Customer();
         ParkingBoy parkingBoy = new ParkingBoy();
-        ParkingTicket parkingTicket = parkingBoy.park(null);
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingTicket parkingTicket = parkingBoy.park(null,parkingLot);
         //when
         String str = customer.checkWrongResult(parkingTicket);
         //then
@@ -24,12 +25,14 @@ public class ParkingLotBoyTest {
         ParkingLot parkingLot = new ParkingLot();
         for(int i = 0;i<10;i++)
         {
-            parkingBoy.park(new Car());
+            parkingBoy.park(new Car(),parkingLot);
         }
         //when
-        parkingBoy.park(new Car());
+
+        parkingBoy.park(new Car(),parkingLot);
         String wrongMessage = parkingLot.checkCapacitanceMesage();
         //then
+
         assertEquals("Not enough position.",wrongMessage);
     }
 

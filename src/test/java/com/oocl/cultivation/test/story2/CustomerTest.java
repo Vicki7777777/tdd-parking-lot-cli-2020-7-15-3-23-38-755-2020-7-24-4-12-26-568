@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test.story2;
 
-import com.oocl.cultivation.story2.Car;
-import com.oocl.cultivation.story2.Customer;
-import com.oocl.cultivation.story2.ParkingBoy;
-import com.oocl.cultivation.story2.ParkingTicket;
+import com.oocl.cultivation.story2.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,7 +12,8 @@ public class CustomerTest {
         Customer customer = new Customer();
         Car car = new Car();
         ParkingBoy parkingBoy = new ParkingBoy();
-        ParkingTicket parkingTicket = customer.giveCar(car,parkingBoy);
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingTicket parkingTicket = customer.giveCar(car,parkingBoy,parkingLot);
         //when
         customer.giveTicket(parkingTicket,parkingBoy);
         customer.giveTicket(parkingTicket,parkingBoy);

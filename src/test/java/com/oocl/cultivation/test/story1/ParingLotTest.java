@@ -30,6 +30,7 @@ public class ParingLotTest {
         {
             parkingLot.putCar(new Car());
         }
+
         ParkingTicket parkingTicket = parkingLot.putCar(new Car());
         //then
         assertNull(parkingTicket);

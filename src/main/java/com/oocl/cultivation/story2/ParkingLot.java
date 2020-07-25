@@ -39,8 +39,15 @@ public class ParkingLot {
         return capacitance < 10;
     }
     public String checkCapacitanceMesage(){
-        return "";
+        if(capacitance == 10){
+            return "Not enough position.";
+        }else {
+            return "";
+        }
     }
 
+    public int getCapacitance() {
+        return capacitance;
+    }
 
 }
