@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ParkingLotBoy {
+public class ParkingLotBoyTest {
     @Test
     void should_return_wrongMesage_when_packingBoy_given_nullTecket(){
         //given
@@ -20,5 +20,6 @@ public class ParkingLotBoy {
         //then
         assertEquals("Unrecognized parking ticket.",str);
     }
+
 
 }

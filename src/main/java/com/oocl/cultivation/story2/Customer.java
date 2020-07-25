@@ -4,10 +4,10 @@ public class Customer {
     Car customerCar = new Car();
     ParkingTicket parkingTicket = new ParkingTicket();
     ParkingBoy parkingBoy = new ParkingBoy();
-    public ParkingTicket giveCar(ParkingBoy parkingBoy){
+    public ParkingTicket giveCar(Car car,ParkingBoy parkingBoy){
         return parkingBoy.park(customerCar);
     }
-    public Car giveTicket(ParkingBoy parkingBoy) {
+    public Car giveTicket(ParkingTicket parkingTicket,ParkingBoy parkingBoy) {
         return parkingBoy.fetch(parkingTicket);
     }
     public boolean checkCar(Car car){
