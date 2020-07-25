@@ -8,8 +8,10 @@ public class Customer {
         return parkingTicket;
     }
     public Car giveTicket(ParkingTicket parkingTicket) {
-
         Car car = parkingBoy.fetch(parkingTicket);
          return car;
+    }
+    public boolean checkCar(Car car){
+        return true;
     }
 }
