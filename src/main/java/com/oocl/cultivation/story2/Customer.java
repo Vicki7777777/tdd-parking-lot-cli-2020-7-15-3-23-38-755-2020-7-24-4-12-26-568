@@ -2,11 +2,11 @@ package com.oocl.cultivation.story2;
 
 public class Customer {
     Car customerCar = new Car();
-    ParkingBoy parkingBoy = new ParkingBoy();
-    public ParkingTicket giveCar(Car customerCar){
+    ParkingTicket parkingTicket = new ParkingTicket();
+    public ParkingTicket giveCar(ParkingBoy parkingBoy){
         return parkingBoy.park(customerCar);
     }
-    public Car giveTicket(ParkingTicket parkingTicket) {
+    public Car giveTicket(ParkingBoy parkingBoy) {
         return parkingBoy.fetch(parkingTicket);
     }
     public boolean checkCar(Car car){
