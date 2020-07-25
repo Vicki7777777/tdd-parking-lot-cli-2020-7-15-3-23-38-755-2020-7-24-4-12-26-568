@@ -1,4 +1,4 @@
-package com.oocl.cultivation.story1;
+package com.oocl.cultivation.story2;
 
 public class Customer {
     Car customerCar = new Car();
@@ -17,4 +17,7 @@ public class Customer {
         return customerCar;
     }
 
+    public String checkWrongResult(ParkingTicket parkingTicket) {
+        return "";
+    }
 }
