@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.Customer;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.ParkingTicket;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,18 +19,15 @@ public class ParingLotTest {
         assertEquals(false,parkingLot.checkTicket(parkingTicket));
     }
     @Test
-    void should_return_wrong_when_capacitance_full_given_car(){
+    void should_return_null_parkingTicket_when_capacitance_full_given_car(){
         //given
-        Car car = new Car();
-        Customer customer = new Customer();
+        ParkingLot parkingLot = new ParkingLot();
+        //when
         for(int i = 0;i<10;i++)
         {
-            customer.giveCar(car);
+            parkingLot.putCar(new Car());
         }
-        //when
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingTicket parkingTicket = customer.giveCar(car);
-
+        ParkingTicket parkingTicket = parkingLot.putCar(new Car());
         //then
         assertEquals(null,parkingTicket);
     }

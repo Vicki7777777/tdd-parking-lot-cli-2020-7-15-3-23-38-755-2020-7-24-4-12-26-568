@@ -4,12 +4,20 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class ParkingLot {
-    private HashMap<ParkingTicket,Car> ticket_car = new HashMap<>();
+    private final HashMap<ParkingTicket,Car> ticket_car = new HashMap<>();
+    private int capacitance = 0;
 
     public ParkingTicket putCar(Car car){
-        ParkingTicket getTicket = new ParkingTicket();
-        ticket_car.put(getTicket,car);
-        return getTicket;
+        if(checkCapacitance()){
+            ParkingTicket getTicket = new ParkingTicket();
+            ticket_car.put(getTicket,car);
+            capacitance++;
+            return getTicket;
+        }
+        else {
+            return null;
+        }
+
     }
 
     public Car findCar(ParkingTicket parkingTicket) {
@@ -17,6 +25,7 @@ public class ParkingLot {
         if(checkTicket(parkingTicket)){
             findResultCar = ticket_car.get(parkingTicket);
             ticket_car.remove(parkingTicket);
+            capacitance--;
             return findResultCar;
         }else {
             return null;
@@ -30,12 +39,18 @@ public class ParkingLot {
             return true;
         }
     }
+    public boolean checkCapacitance(){
+        if(capacitance >= 10)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 
     public HashMap<ParkingTicket, Car> getTicket_car() {
         return ticket_car;
     }
 
-    public void setTicket_car(HashMap<ParkingTicket, Car> ticket_car) {
-        this.ticket_car = ticket_car;
-    }
 }
