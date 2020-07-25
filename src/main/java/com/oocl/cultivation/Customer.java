@@ -4,20 +4,13 @@ public class Customer {
     Car customerCar = new Car();
     ParkingBoy parkingBoy = new ParkingBoy();
     public ParkingTicket giveCar(Car customerCar){
-        ParkingTicket parkingTicket = parkingBoy.park(customerCar);
-        return parkingTicket;
+        return parkingBoy.park(customerCar);
     }
     public Car giveTicket(ParkingTicket parkingTicket) {
-        Car car = parkingBoy.fetch(parkingTicket);
-         return car;
+        return parkingBoy.fetch(parkingTicket);
     }
     public boolean checkCar(Car car){
-        if (car == getCustomerCar()){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return car == getCustomerCar();
     }
 
     public Car getCustomerCar() {

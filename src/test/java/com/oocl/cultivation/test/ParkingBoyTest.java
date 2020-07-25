@@ -5,8 +5,7 @@ import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ParkingTicket;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingBoyTest {
     @Test
@@ -58,7 +57,7 @@ public class ParkingBoyTest {
         //when
         Car carTest = parkingBoy.fetch(parkingTicket);
         //then
-        assertEquals(null,carTest);
+        assertNull(carTest);
     }
 
 }

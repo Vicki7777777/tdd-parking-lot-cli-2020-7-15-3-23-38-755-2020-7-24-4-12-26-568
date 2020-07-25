@@ -1,7 +1,6 @@
 package com.oocl.cultivation;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class ParkingLot {
     private final HashMap<ParkingTicket,Car> ticket_car = new HashMap<>();
@@ -21,7 +20,7 @@ public class ParkingLot {
     }
 
     public Car findCar(ParkingTicket parkingTicket) {
-        Car findResultCar = new Car();
+        Car findResultCar;
         if(checkTicket(parkingTicket)){
             findResultCar = ticket_car.get(parkingTicket);
             ticket_car.remove(parkingTicket);
@@ -33,24 +32,11 @@ public class ParkingLot {
     }
 
     public boolean checkTicket(ParkingTicket parkingTicket) {
-        if((parkingTicket == null) || (ticket_car.get(parkingTicket) == null)){
-            return false;
-        }else{
-            return true;
-        }
+        return (parkingTicket != null) && (ticket_car.get(parkingTicket) != null);
     }
     public boolean checkCapacitance(){
-        if(capacitance >= 10)
-        {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return capacitance < 10;
     }
 
-    public HashMap<ParkingTicket, Car> getTicket_car() {
-        return ticket_car;
-    }
 
 }

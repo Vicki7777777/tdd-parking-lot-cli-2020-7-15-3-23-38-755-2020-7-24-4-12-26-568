@@ -3,7 +3,7 @@ package com.oocl.cultivation.test;
 import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParingLotTest {
     @Test
@@ -16,7 +16,7 @@ public class ParingLotTest {
         //when
         parkingLot.checkTicket(parkingTicket);
         //then
-        assertEquals(false,parkingLot.checkTicket(parkingTicket));
+        assertFalse(parkingLot.checkTicket(parkingTicket));
     }
     @Test
     void should_return_null_parkingTicket_when_capacitance_full_given_car(){
@@ -29,6 +29,6 @@ public class ParingLotTest {
         }
         ParkingTicket parkingTicket = parkingLot.putCar(new Car());
         //then
-        assertEquals(null,parkingTicket);
+        assertNull(parkingTicket);
     }
 }

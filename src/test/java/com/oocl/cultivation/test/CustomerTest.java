@@ -6,7 +6,7 @@ import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ParkingTicket;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CustomerTest {
 
@@ -20,7 +20,7 @@ public class CustomerTest {
         //when
         Car car = customer.giveTicket(parkingTicket);
         //then
-        assertEquals(null,car);
+        assertNull(car);
     }
     @Test
     void should_return_wrong_when_customer_given_wrongTicket(){
@@ -36,8 +36,8 @@ public class CustomerTest {
         Car carTest01 = customer01.giveTicket(parkingTicket02);
         Car carTest02 = customer02.giveTicket(parkingTicket01);
         //then
-        assertEquals(false,customer01.checkCar(carTest01));
-        assertEquals(false,customer02.checkCar(carTest02));
+        assertFalse(customer01.checkCar(carTest01));
+        assertFalse(customer02.checkCar(carTest02));
     }
 
 }
