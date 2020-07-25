@@ -1,4 +1,4 @@
-package com.oocl.cultivation;
+package com.oocl.cultivation.story1;
 
 public class Customer {
     Car customerCar = new Car();

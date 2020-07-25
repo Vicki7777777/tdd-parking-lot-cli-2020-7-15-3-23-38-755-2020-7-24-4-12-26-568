@@ -1,9 +1,9 @@
-package com.oocl.cultivation;
+package com.oocl.cultivation.story1;
 
 import java.util.HashMap;
 
 public class ParkingLot {
-    private final HashMap<ParkingTicket,Car> ticket_car = new HashMap<>();
+    private final HashMap<ParkingTicket, Car> ticket_car = new HashMap<>();
     private int capacitance = 0;
 
     public ParkingTicket putCar(Car car){

@@ -1,4 +1,4 @@
-package com.oocl.cultivation;
+package com.oocl.cultivation.story1;
 
 public class ParkingBoy {
     ParkingLot parkingLot = new ParkingLot();

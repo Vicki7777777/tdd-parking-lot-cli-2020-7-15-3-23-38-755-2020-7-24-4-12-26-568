@@ -1,9 +1,9 @@
-package com.oocl.cultivation.test;
+package com.oocl.cultivation.test.story1;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.Customer;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingTicket;
+import com.oocl.cultivation.story1.Car;
+import com.oocl.cultivation.story1.Customer;
+import com.oocl.cultivation.story1.ParkingBoy;
+import com.oocl.cultivation.story1.ParkingTicket;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
