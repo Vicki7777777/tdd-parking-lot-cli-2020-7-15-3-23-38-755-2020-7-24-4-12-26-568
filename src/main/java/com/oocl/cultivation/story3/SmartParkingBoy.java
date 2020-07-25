@@ -54,4 +54,18 @@ public class SmartParkingBoy extends ParkingBoy{
         ParkingLot parkingLot = findParkingLotWithTicket(parkingTicket);
         return parkingLot.findCar(parkingTicket);
     }
+    public String checkTicketMessage(ParkingTicket parkingTicket){
+        String errorStr = "";
+        if(parkingTicket == null){
+            errorStr = "Please provide your parking ticket.";
+            return errorStr;
+        }
+        if(!parkingLot.checkTicket(parkingTicket)){
+            errorStr = "Unrecognized parking ticket.";
+            return errorStr;
+        }
+        return errorStr;
+    }
+
+
 }

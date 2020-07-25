@@ -3,13 +3,12 @@ package com.oocl.cultivation.story3;
 public class Customer {
     Car customerCar = new Car();
     ParkingTicket parkingTicket = new ParkingTicket();
-    ParkingBoy parkingBoy = new ParkingBoy();
     ParkingLot parkingLot = new ParkingLot();
-    public ParkingTicket giveCar(Car car,ParkingBoy parkingBoy,ParkingLot parkingLot){
-        return parkingBoy.park(customerCar,parkingLot);
+    public ParkingTicket giveCar(Car car,SmartParkingBoy smartParkingBoy){
+        return smartParkingBoy.park(car);
     }
-    public Car giveTicket(ParkingTicket parkingTicket,ParkingBoy parkingBoy) {
-        return parkingBoy.fetch(parkingTicket,parkingLot);
+    public Car giveTicket(ParkingTicket parkingTicket,SmartParkingBoy smartParkingBoy) {
+        return smartParkingBoy.fetch(parkingTicket);
     }
     public boolean checkCar(Car car){
         return car == getCustomerCar();
@@ -19,7 +18,7 @@ public class Customer {
         return customerCar;
     }
 
-    public String checkWrongResult(ParkingTicket parkingTicket) {
-        return parkingBoy.checkTicketMessage(parkingTicket);
+    public String checkWrongResult(ParkingTicket parkingTicket,SmartParkingBoy smartParkingBoy) {
+        return smartParkingBoy.checkTicketMessage(parkingTicket);
     }
 }
