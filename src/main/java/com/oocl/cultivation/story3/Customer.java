@@ -21,4 +21,5 @@ public class Customer {
     public String checkWrongResult(ParkingTicket parkingTicket,SmartParkingBoy smartParkingBoy) {
         return smartParkingBoy.checkTicketMessage(parkingTicket);
     }
+
 }

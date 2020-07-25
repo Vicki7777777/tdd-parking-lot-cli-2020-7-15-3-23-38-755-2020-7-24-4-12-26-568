@@ -85,5 +85,19 @@ public class SmartParkingBoyTest {
         //then
         assertNull(carTest);
     }
+    @Test
+    void should_return_more_empty_parkingLot_when_vacancy_isDifference_given_twoCar(){
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        ParkingLot parkingLot01 = new ParkingLot();
+        ParkingLot parkingLot02 = new ParkingLot();
+        smartParkingBoy.manageParkingLot(parkingLot01);
+        smartParkingBoy.manageParkingLot(parkingLot02);
+        Car car01 = new Car();
+        Car car02 = new Car();
+        ParkingTicket parkingTicket01 = smartParkingBoy.park(car01);
+        ParkingTicket parkingTicke02 = smartParkingBoy.park(car02);
+        boolean flag = (smartParkingBoy.findParkingLotWithTicket(parkingTicket01) == smartParkingBoy.findParkingLotWithTicket(parkingTicke02));
+        assertFalse(flag);
+    }
 
 }
