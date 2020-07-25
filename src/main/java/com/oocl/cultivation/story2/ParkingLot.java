@@ -14,6 +14,7 @@ public class ParkingLot {
             return getTicket;
         }
         else {
+            checkCapacitanceMesage();
             return null;
         }
 
@@ -36,6 +37,9 @@ public class ParkingLot {
     }
     public boolean checkCapacitance(){
         return capacitance < 10;
+    }
+    public String checkCapacitanceMesage(){
+        return "";
     }
 
 
