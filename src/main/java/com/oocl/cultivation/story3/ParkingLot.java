@@ -32,6 +32,10 @@ public class ParkingLot {
         }
     }
 
+    public boolean isCarExist(Car car){
+        return ticket_car.containsValue(car);
+    }
+
     public boolean checkTicket(ParkingTicket parkingTicket) {
         return (parkingTicket != null) && (ticket_car.get(parkingTicket) != null);
     }

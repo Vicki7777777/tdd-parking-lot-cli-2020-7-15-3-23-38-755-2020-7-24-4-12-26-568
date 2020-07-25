@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ParkingBoyTest {
+public class SmartParkingBoyTest {
     @Test
     void should_return_put_car_to_another_parkingLot_when_firstParkingLoutFull_give_multipleCar(){
         //given
