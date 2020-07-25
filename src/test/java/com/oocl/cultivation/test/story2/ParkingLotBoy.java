@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ParkingLotTest {
+public class ParkingLotBoy {
     @Test
     void should_return_wrongMesage_when_packingBoy_given_nullTecket(){
         //given

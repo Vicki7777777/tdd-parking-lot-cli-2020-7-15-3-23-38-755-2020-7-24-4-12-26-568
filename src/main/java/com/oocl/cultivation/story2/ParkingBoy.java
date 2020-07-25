@@ -11,5 +11,13 @@ public class ParkingBoy {
         return parkingLot.findCar(parkingTicket);
     }
 
+    public String checkTicketMessage(ParkingTicket parkingTicket){
+        String string = "";
+        if(!parkingLot.checkTicket(parkingTicket)){
+            string = "Unrecognized parking ticket.";
+        }
+        return string;
+    }
+
 
 }

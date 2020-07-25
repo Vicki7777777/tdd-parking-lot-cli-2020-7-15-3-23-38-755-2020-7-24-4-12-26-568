@@ -3,6 +3,7 @@ package com.oocl.cultivation.story2;
 public class Customer {
     Car customerCar = new Car();
     ParkingTicket parkingTicket = new ParkingTicket();
+    ParkingBoy parkingBoy = new ParkingBoy();
     public ParkingTicket giveCar(ParkingBoy parkingBoy){
         return parkingBoy.park(customerCar);
     }
@@ -18,6 +19,6 @@ public class Customer {
     }
 
     public String checkWrongResult(ParkingTicket parkingTicket) {
-        return "";
+        return parkingBoy.checkTicketMessage(parkingTicket);
     }
 }
