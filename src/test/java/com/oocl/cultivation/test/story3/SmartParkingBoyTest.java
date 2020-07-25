@@ -1,12 +1,9 @@
 package com.oocl.cultivation.test.story3;
 
-import com.oocl.cultivation.story3.Car;
-import com.oocl.cultivation.story3.ParkingBoy;
-import com.oocl.cultivation.story3.ParkingLot;
-import com.oocl.cultivation.story3.SmartParkingBoy;
+import com.oocl.cultivation.story3.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartParkingBoyTest {
     @Test
@@ -28,6 +25,65 @@ public class SmartParkingBoyTest {
         smartParkingBoy.park(new Car());
         //then
         assertEquals(parkingLot02,smartParkingBoy.findParkingLot(car));
-
     }
+    @Test
+    void should_return_ticket_when_smartParkingBoy_park_given_car() {
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        smartParkingBoy.manageParkingLot(parkingLot);
+        //when
+        ParkingTicket ticket = smartParkingBoy.park(car);
+        //then
+        assertNotNull(ticket);
+    }
+    @Test
+    void should_return_car_when_smartParkingBoy_fetch_given_ticket() {
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        smartParkingBoy.manageParkingLot(parkingLot);
+        ParkingTicket parkingTicket = smartParkingBoy.park(car);
+
+        //when
+        Car carTest = smartParkingBoy.fetch(parkingTicket);
+        //then
+        assertNotNull(carTest);
+    }
+    @Test
+    void should_return_rightCar_when_parkingLot_find_given_tickets(){
+        //given
+        Car car01 = new Car();
+        Car car02 = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        smartParkingBoy.manageParkingLot(parkingLot);
+        smartParkingBoy.park(car01);
+        ParkingTicket parkingTicket01 = smartParkingBoy.park(car01);
+        ParkingTicket parkingTicket02 = smartParkingBoy.park(car02);
+
+        //when
+        Car carTest01 = smartParkingBoy.fetch(parkingTicket01);
+        Car carTest02 = smartParkingBoy.fetch(parkingTicket02);
+        //then
+        assertEquals(car01,carTest01);
+        assertEquals(car02,carTest02);
+    }
+    @Test
+    void should_return_wrong_when_smartParkingBoy_given_customer_nullTicket(){
+        //give
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot();
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        smartParkingBoy.manageParkingLot(parkingLot);
+        ParkingTicket parkingTicket = null;
+        smartParkingBoy.park(car);
+        //when
+        Car carTest = smartParkingBoy.fetch(parkingTicket);
+        //then
+        assertNull(carTest);
+    }
+
 }

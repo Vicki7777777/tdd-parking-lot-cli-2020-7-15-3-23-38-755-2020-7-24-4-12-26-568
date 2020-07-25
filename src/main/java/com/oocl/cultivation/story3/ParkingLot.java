@@ -54,4 +54,7 @@ public class ParkingLot {
         return capacitance;
     }
 
+    public boolean isTicketExist(ParkingTicket parkingTicket) {
+        return ticket_car.containsKey(parkingTicket);
+    }
 }

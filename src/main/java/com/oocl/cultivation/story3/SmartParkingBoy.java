@@ -34,9 +34,24 @@ public class SmartParkingBoy extends ParkingBoy{
         return parkingLot;
     }
 
+    public ParkingLot findParkingLotWithTicket(ParkingTicket parkingTicket){
+        ParkingLot parkingLot = null;
+        for(int i=0;i<parkingLots.size();i++){
+            parkingLot = parkingLots.get(i);
+            if(parkingLot.isTicketExist(parkingTicket)){
+                return parkingLot;
+            }
+        }
+        return parkingLot;
+    }
+
     public void manageParkingLot(ParkingLot parkingLot) {
         parkingLots.add(parkingLot);
     }
 
 
+    public Car fetch(ParkingTicket parkingTicket) {
+        ParkingLot parkingLot = findParkingLotWithTicket(parkingTicket);
+        return parkingLot.findCar(parkingTicket);
+    }
 }
