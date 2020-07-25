@@ -1,10 +1,10 @@
 package com.oocl.cultivation;
 
 public class Customer {
-    Car car = new Car();
+    Car customerCar = new Car();
     ParkingBoy parkingBoy = new ParkingBoy();
-    public ParkingTicket giveCar(Car car){
-        ParkingTicket parkingTicket = parkingBoy.park(car);
+    public ParkingTicket giveCar(Car customerCar){
+        ParkingTicket parkingTicket = parkingBoy.park(customerCar);
         return parkingTicket;
     }
     public Car giveTicket(ParkingTicket parkingTicket) {
@@ -12,6 +12,15 @@ public class Customer {
          return car;
     }
     public boolean checkCar(Car car){
-        return true;
+        if (car == getCustomerCar()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public Car getCustomerCar() {
+        return customerCar;
     }
 }
