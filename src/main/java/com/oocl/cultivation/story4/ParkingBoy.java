@@ -1,7 +1,7 @@
 package com.oocl.cultivation.story4;
 
 public class ParkingBoy {
-    ParkingLot parkingLot = new ParkingLot();
+    ParkingLot parkingLot = new ParkingLot(10);
     public ParkingTicket park(Car car,ParkingLot parkingLot) {
         return parkingLot.putCar(car);
     }

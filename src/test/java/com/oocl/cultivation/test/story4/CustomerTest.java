@@ -12,7 +12,7 @@ public class CustomerTest {
         //given
         Customer customer = new Customer();
         Car car = new Car();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         smartParkingBoy.manageParkingLot(parkingLot);
         ParkingTicket parkingTicket = customer.giveCar(car,smartParkingBoy);
@@ -27,7 +27,7 @@ public class CustomerTest {
     void  should_return_wrongMessage_when_customer_given_nullTicket(){
         //given
         Customer customer = new Customer();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         smartParkingBoy.manageParkingLot(parkingLot);
         //when

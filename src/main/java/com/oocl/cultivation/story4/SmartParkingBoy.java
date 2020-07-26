@@ -1,23 +1,24 @@
 package com.oocl.cultivation.story4;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class SmartParkingBoy extends ParkingBoy{
-    private List<ParkingLot>parkingLots = new ArrayList<ParkingLot>();;
+    private HashMap<ParkingLot, Integer> parkingLots = new HashMap<>();
+
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = null;
         boolean isParking = false;
-        for(int i=0; i<parkingLots.size();i++){
-            ParkingLot parkingLot = parkingLots.get(i);
-            if (parkingLot.checkCapacitance()){
-                parkingTicket = parkingLot.putCar(car);
+        Integer maxCapacitance = getMaxCapacitance(parkingLots);
+        for(ParkingLot parkingLotKey : parkingLots.keySet()){
+            if(maxCapacitance == parkingLots.get(parkingLotKey) && parkingLotKey.checkCapacitance()){
+                parkingTicket = parkingLotKey.putCar(car);
                 isParking = true;
+                parkingLots.put(parkingLotKey,parkingLotKey.getCapacitance());
+                return parkingTicket;
             }
             if(!isParking){
-                parkingLot.checkCapacitanceMesage();
+                parkingLotKey.checkCapacitanceMessage();
             }
         }
         return parkingTicket;
@@ -25,8 +26,8 @@ public class SmartParkingBoy extends ParkingBoy{
 
     public ParkingLot findParkingLot(Car car) {
         ParkingLot parkingLot = null;
-        for(int i=0;i<parkingLots.size();i++){
-            parkingLot = parkingLots.get(i);
+        for(ParkingLot parkingLotKey : parkingLots.keySet()){
+            parkingLot = parkingLotKey;
             if(parkingLot.isCarExist(car)){
                 return parkingLot;
             }
@@ -36,24 +37,28 @@ public class SmartParkingBoy extends ParkingBoy{
 
     public ParkingLot findParkingLotWithTicket(ParkingTicket parkingTicket){
         ParkingLot parkingLot = null;
-        for(int i=0;i<parkingLots.size();i++){
-            parkingLot = parkingLots.get(i);
-            if(parkingLot.isTicketExist(parkingTicket)){
+        for(ParkingLot parkingLotKey : parkingLots.keySet()){
+            parkingLot = parkingLotKey;
+            if(parkingLot.isTicketExist(parkingTicket)) {
                 return parkingLot;
             }
         }
+
         return parkingLot;
     }
 
+
     public void manageParkingLot(ParkingLot parkingLot) {
-        parkingLots.add(parkingLot);
+        parkingLots.put(parkingLot,parkingLot.getParkingSpace());
     }
 
 
     public Car fetch(ParkingTicket parkingTicket) {
         ParkingLot parkingLot = findParkingLotWithTicket(parkingTicket);
+        parkingLots.put(parkingLot,parkingLot.getCapacitance());
         return parkingLot.findCar(parkingTicket);
     }
+
     public String checkTicketMessage(ParkingTicket parkingTicket){
         String errorStr = "";
         if(parkingTicket == null){
@@ -67,5 +72,17 @@ public class SmartParkingBoy extends ParkingBoy{
         return errorStr;
     }
 
+    public Integer getMaxCapacitance(HashMap<ParkingLot, Integer> map){
+        if(map == null){
+            return null;
+        }
+        Collection<Integer> capacitance = map.values();
+        Object[] capacitanceSort = capacitance.toArray();
+        Arrays.sort(capacitanceSort);
+        return (Integer) capacitanceSort[capacitanceSort.length-1];
+    }
+     public Integer test(){
+        return getMaxCapacitance(parkingLots);
+     }
 
 }

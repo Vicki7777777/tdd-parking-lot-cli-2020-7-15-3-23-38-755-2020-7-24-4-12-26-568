@@ -2,8 +2,6 @@ package com.oocl.cultivation.story4;
 
 public class Customer {
     Car customerCar = new Car();
-    ParkingTicket parkingTicket = new ParkingTicket();
-    ParkingLot parkingLot = new ParkingLot();
     public ParkingTicket giveCar(Car car,SmartParkingBoy smartParkingBoy){
         return smartParkingBoy.park(car);
     }

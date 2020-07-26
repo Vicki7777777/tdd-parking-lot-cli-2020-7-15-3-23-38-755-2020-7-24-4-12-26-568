@@ -3,17 +3,22 @@ import java.util.HashMap;
 
 public class ParkingLot {
     private final HashMap<ParkingTicket, Car> ticket_car = new HashMap<>();
-    private int capacitance = 0;
+    private Integer usedCapacitance = 0;
+    private Integer parkingSpaceSum = 0;
+
+    public ParkingLot(int space){
+        parkingSpaceSum = space;
+    }
 
     public ParkingTicket putCar(Car car){
         if(checkCapacitance()){
             ParkingTicket getTicket = new ParkingTicket();
             ticket_car.put(getTicket,car);
-            capacitance++;
+            usedCapacitance++;
             return getTicket;
         }
         else {
-            checkCapacitanceMesage();
+            checkCapacitanceMessage();
             return null;
         }
 
@@ -24,7 +29,7 @@ public class ParkingLot {
         if(checkTicket(parkingTicket)){
             findResultCar = ticket_car.get(parkingTicket);
             ticket_car.remove(parkingTicket);
-            capacitance--;
+            usedCapacitance--;
             return findResultCar;
         }else {
             return null;
@@ -39,18 +44,21 @@ public class ParkingLot {
         return (parkingTicket != null) && (ticket_car.get(parkingTicket) != null);
     }
     public boolean checkCapacitance(){
-        return capacitance < 10;
+        return getParkingSpace() > 0;
     }
-    public String checkCapacitanceMesage(){
-        if(capacitance == 10){
+    public String checkCapacitanceMessage(){
+        if(getParkingSpace() == 0){
             return "Not enough position.";
         }else {
             return "";
         }
     }
 
-    public int getCapacitance() {
-        return capacitance;
+    public Integer getCapacitance() {
+        return usedCapacitance;
+    }
+    public Integer getParkingSpace() {
+        return (parkingSpaceSum-usedCapacitance);
     }
 
     public boolean isTicketExist(ParkingTicket parkingTicket) {

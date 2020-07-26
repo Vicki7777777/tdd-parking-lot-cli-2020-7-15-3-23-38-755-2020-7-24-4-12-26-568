@@ -14,7 +14,7 @@ public class ParkingLotTest {
         //given
         Customer customer = new Customer();
         Car car = new Car();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         smartParkingBoy.manageParkingLot(parkingLot);
         ParkingTicket parkingTicket = customer.giveCar(car,smartParkingBoy);
@@ -27,7 +27,7 @@ public class ParkingLotTest {
     @Test
     void should_return_null_parkingTicket_when_capacitance_full_given_car(){
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         smartParkingBoy.manageParkingLot(parkingLot);
         //when
