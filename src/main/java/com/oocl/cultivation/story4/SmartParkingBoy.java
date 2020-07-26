@@ -14,7 +14,7 @@ public class SmartParkingBoy extends ParkingBoy{
             if(maxCapacitance == parkingLots.get(parkingLotKey) && parkingLotKey.checkCapacitance()){
                 parkingTicket = parkingLotKey.putCar(car);
                 isParking = true;
-                parkingLots.put(parkingLotKey,parkingLotKey.getCapacitance());
+                parkingLots.put(parkingLotKey,parkingLotKey.getParkingSpace());
                 return parkingTicket;
             }
             if(!isParking){
