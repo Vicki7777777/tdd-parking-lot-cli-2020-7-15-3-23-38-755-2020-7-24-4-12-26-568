@@ -65,4 +65,9 @@ public class ParkingLot {
     public boolean isTicketExist(ParkingTicket parkingTicket) {
         return ticket_car.containsKey(parkingTicket);
     }
+
+    public double calculateAvailable(){
+        double parkingSpace = getParkingSpace();
+        return parkingSpace/parkingSpaceSum;
+    }
 }
