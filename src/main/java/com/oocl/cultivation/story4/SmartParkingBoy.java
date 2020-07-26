@@ -81,8 +81,5 @@ public class SmartParkingBoy extends ParkingBoy{
         Arrays.sort(capacitanceSort);
         return (Integer) capacitanceSort[capacitanceSort.length-1];
     }
-     public Integer test(){
-        return getMaxCapacitance(parkingLots);
-     }
 
 }

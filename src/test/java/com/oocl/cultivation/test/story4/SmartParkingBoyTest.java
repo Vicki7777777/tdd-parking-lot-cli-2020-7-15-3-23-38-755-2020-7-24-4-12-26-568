@@ -19,9 +19,7 @@ public class SmartParkingBoyTest {
         Car car01 = new Car();
         Car car02 = new Car();
         ParkingTicket parkingTicket01 = smartParkingBoy.park(car01);
-        smartParkingBoy.test();
         ParkingTicket parkingTicket02 = smartParkingBoy.park(car02);
-        smartParkingBoy.test();
         ParkingLot parkingLottest01 = smartParkingBoy.findParkingLotWithTicket(parkingTicket01);
         ParkingLot parkingLottest02 = smartParkingBoy.findParkingLotWithTicket(parkingTicket02);
         boolean flag = (parkingLottest01 == parkingLottest02);
