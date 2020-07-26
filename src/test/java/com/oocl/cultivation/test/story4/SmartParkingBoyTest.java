@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SmartParkingLotTest {
+public class SmartParkingBoyTest {
     @Test
     void should_return_more_empty_parkingLot_when_vacancy_isDifference_given_twoCar(){
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
@@ -27,26 +27,7 @@ public class SmartParkingLotTest {
         boolean flag = (parkingLottest01 == parkingLottest02);
         assertFalse(flag);
     }
-//    @Test
-//    void should_return_put_car_to_another_parkingLot_when_firstParkingLoutFull_give_multipleCar(){
-//        //given
-//
-//        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
-//        ParkingLot parkingLot01 = new ParkingLot();
-//        ParkingLot parkingLot02 = new ParkingLot();
-//        smartParkingBoy.manageParkingLot(parkingLot01);
-//        smartParkingBoy.manageParkingLot(parkingLot02);
-//        for(int i = 0;i<parkingLot01.getCapacitance();i++)
-//        {
-//            smartParkingBoy.park(new Car());
-//        }
-//
-//        //when
-//        Car car = new Car();
-//        smartParkingBoy.park(new Car());
-//        //then
-//        assertEquals(parkingLot02,smartParkingBoy.findParkingLot(car));
-//    }
+
     @Test
     void should_return_ticket_when_smartParkingBoy_park_given_car() {
         //given
