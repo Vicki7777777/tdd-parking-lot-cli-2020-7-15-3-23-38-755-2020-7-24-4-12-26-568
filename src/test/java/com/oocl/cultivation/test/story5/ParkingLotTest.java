@@ -10,29 +10,29 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ParkingLotTest {
     @Test
-    void should_return_wrong_when_customer_given_usedTicket(){
+    void should_return_wrong_when_customer_given_usedTicket() {
         //given
         Customer customer = new Customer();
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot(10);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         smartParkingBoy.manageParkingLot(parkingLot);
-        ParkingTicket parkingTicket = customer.giveCar(car,smartParkingBoy);
+        ParkingTicket parkingTicket = customer.giveCar(car, smartParkingBoy);
         smartParkingBoy.fetch(parkingTicket);
         //when
         parkingLot.checkTicket(parkingTicket);
         //then
         assertFalse(parkingLot.checkTicket(parkingTicket));
     }
+
     @Test
-    void should_return_null_parkingTicket_when_capacitance_full_given_car(){
+    void should_return_null_parkingTicket_when_capacitance_full_given_car() {
         //given
         ParkingLot parkingLot = new ParkingLot(10);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         smartParkingBoy.manageParkingLot(parkingLot);
         //when
-        for(int i = 0;i<10;i++)
-        {
+        for (int i = 0; i < 10; i++) {
             parkingLot.putCar(new Car());
         }
 

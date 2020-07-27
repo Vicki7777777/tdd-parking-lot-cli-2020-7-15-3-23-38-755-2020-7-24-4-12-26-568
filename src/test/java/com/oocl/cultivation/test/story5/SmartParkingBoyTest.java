@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartParkingBoyTest {
     @Test
-    void should_return_larger_available_position_when_parkingSpace_isdifferent_given_twoCar(){
+    void should_return_larger_available_position_when_parkingSpace_isdifferent_given_twoCar() {
         //given
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         ParkingLot parkingLot01 = new ParkingLot(10);
@@ -27,7 +27,7 @@ public class SmartParkingBoyTest {
         ParkingLot parkingLotTest01 = smartParkingBoy.findParkingLotWithTicket(parkingTicket01);
         ParkingLot parkingLotTest02 = smartParkingBoy.findParkingLotWithTicket(parkingTicket02);
         boolean flag = (parkingLotTest01 == parkingLotTest02);
-        assertEquals(false,flag);
+        assertEquals(false, flag);
     }
 
     @Test
@@ -42,6 +42,7 @@ public class SmartParkingBoyTest {
         //then
         assertNotNull(ticket);
     }
+
     @Test
     void should_return_car_when_smartParkingBoy_fetch_given_ticket() {
         //given
@@ -56,8 +57,9 @@ public class SmartParkingBoyTest {
         //then
         assertNotNull(carTest);
     }
+
     @Test
-    void should_return_rightCar_when_parkingLot_find_given_tickets(){
+    void should_return_rightCar_when_parkingLot_find_given_tickets() {
         //given
         Car car01 = new Car();
         Car car02 = new Car();
@@ -72,11 +74,12 @@ public class SmartParkingBoyTest {
         Car carTest01 = smartParkingBoy.fetch(parkingTicket01);
         Car carTest02 = smartParkingBoy.fetch(parkingTicket02);
         //then
-        assertEquals(car01,carTest01);
-        assertEquals(car02,carTest02);
+        assertEquals(car01, carTest01);
+        assertEquals(car02, carTest02);
     }
+
     @Test
-    void should_return_wrong_when_smartParkingBoy_given_customer_nullTicket(){
+    void should_return_wrong_when_smartParkingBoy_given_customer_nullTicket() {
         //give
         Car car = new Car();
         ParkingLot parkingLot = new ParkingLot(10);
