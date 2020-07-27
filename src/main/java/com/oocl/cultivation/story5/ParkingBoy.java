@@ -24,5 +24,7 @@ public class ParkingBoy {
         return errorStr;
     }
 
-
+    public ParkingLot getParkingLot() {
+        return parkingLot;
+    }
 }

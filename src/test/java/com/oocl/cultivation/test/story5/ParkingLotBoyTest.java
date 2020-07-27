@@ -41,11 +41,10 @@ public class ParkingLotBoyTest {
     void should_return_rightCar_when_parkingBoy_fetch_given_rightTicket(){
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
-        ParkingLot parkingLot = new ParkingLot(10);
         Car car = new Car();
-        ParkingTicket parkingTicket = parkingBoy.park(car,parkingLot);
+        ParkingTicket parkingTicket = parkingBoy.park(car,parkingBoy.getParkingLot());
         //when
-        Car carTest = parkingBoy.fetch(parkingTicket,parkingLot);
+        Car carTest = parkingBoy.fetch(parkingTicket,parkingBoy.getParkingLot());
         //then
         assertEquals(car,carTest);
     }
@@ -53,11 +52,10 @@ public class ParkingLotBoyTest {
     @Test
     void should_return_wrongMessage_when_parkingBoy_given_nullTicket(){
         //given
-        ParkingLot parkingLot = new ParkingLot(10);
         ParkingBoy parkingBoy = new ParkingBoy();
         ParkingTicket parkingTicket = null;
         //when
-        parkingBoy.fetch(parkingTicket,parkingLot);
+        parkingBoy.fetch(parkingTicket,parkingBoy.getParkingLot());
         String message = parkingBoy.checkTicketMessage(parkingTicket);
         //then
         assertEquals("Please provide your parking ticket.",message);
@@ -67,15 +65,26 @@ public class ParkingLotBoyTest {
     void should_return_wrongMessage_when_parkingBoy_given_usedTicket(){
         //given
         Car car = new Car();
-        ParkingLot parkingLot = new ParkingLot(10);
         ParkingBoy parkingBoy = new ParkingBoy();
-        ParkingTicket parkingTicket = parkingBoy.park(car,parkingLot);
+        ParkingTicket parkingTicket = parkingBoy.park(car,parkingBoy.getParkingLot());
         //when
-        parkingBoy.fetch(parkingTicket,parkingLot);
-        parkingBoy.fetch(parkingTicket,parkingLot);
+        parkingBoy.fetch(parkingTicket,parkingBoy.getParkingLot());
+        parkingBoy.fetch(parkingTicket,parkingBoy.getParkingLot());
         String message = parkingBoy.checkTicketMessage(parkingTicket);
         //then
         assertEquals("Unrecognized parking ticket.",message);
+    }
+
+    @Test
+    void should_return_null_when_checkMessage_given_noUsedTicket(){
+        //given
+        Car car = new Car();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket parkingTicket = parkingBoy.park(car,parkingBoy.getParkingLot());
+        //when
+        String message = parkingBoy.checkTicketMessage(parkingTicket);
+        //then
+        assertEquals("",message);
     }
 
 }
