@@ -1,6 +1,5 @@
 package com.oocl.cultivation.story5;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class SmartParkingBoy extends ParkingBoy {
@@ -22,16 +21,6 @@ public class SmartParkingBoy extends ParkingBoy {
         return parkingTicket;
     }
 
-    public ParkingLot findParkingLot(Car car) {
-        ParkingLot parkingLot = null;
-        for (ParkingLot parkingLotKey : parkingLots.keySet()) {
-            parkingLot = parkingLotKey;
-            if (parkingLot.isCarExist(car)) {
-                return parkingLot;
-            }
-        }
-        return parkingLot;
-    }
 
     public ParkingLot findParkingLotWithTicket(ParkingTicket parkingTicket) {
         ParkingLot parkingLot = null;
@@ -70,15 +59,6 @@ public class SmartParkingBoy extends ParkingBoy {
         return errorStr;
     }
 
-    public Integer getMaxCapacitance(HashMap<ParkingLot, Integer> map) {
-        if (map == null) {
-            return null;
-        }
-        Collection<Integer> capacitance = map.values();
-        Object[] capacitanceSort = capacitance.toArray();
-        Arrays.sort(capacitanceSort);
-        return (Integer) capacitanceSort[capacitanceSort.length - 1];
-    }
 
     public ParkingLot getMaxAvailable(HashMap<ParkingLot, Integer> map) {
         ParkingLot parkingLotMax = null;
