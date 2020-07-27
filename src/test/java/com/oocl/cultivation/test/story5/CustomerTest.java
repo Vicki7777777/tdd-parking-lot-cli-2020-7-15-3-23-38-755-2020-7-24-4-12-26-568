@@ -1,13 +1,13 @@
 package com.oocl.cultivation.test.story5;
 
-import com.oocl.cultivation.story4.*;
+import com.oocl.cultivation.story5.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CustomerTest {
     @Test
-    void should_return_wrongMesage_when_customer_given_usedTicket() {
+    void should_return_wrongMessage_when_customer_given_usedTicket() {
         //given
         Customer customer = new Customer();
         Car car = new Car();
@@ -34,5 +34,20 @@ public class CustomerTest {
         String str = customer.checkWrongResult(null, smartParkingBoy);
         //then
         assertEquals("Please provide your parking ticket.", str);
+    }
+
+    @Test
+    void should_return_rightCar_whenCustomer_given_rightTicket(){
+        //given
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        ParkingLot parkingLot = new ParkingLot(10);
+        smartParkingBoy.manageParkingLot(parkingLot);
+        Customer customer = new Customer();
+        Car car = new Car();
+        ParkingTicket parkingTicket = customer.giveCar(car,smartParkingBoy);
+        //when
+        Car carTest = customer.giveTicket(parkingTicket,smartParkingBoy);
+        //then
+        assertEquals(car,carTest);
     }
 }
