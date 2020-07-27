@@ -4,6 +4,7 @@ import com.oocl.cultivation.story5.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ParkingLotBoyTest {
     @Test
@@ -22,6 +23,18 @@ public class ParkingLotBoyTest {
         //then
 
         assertEquals("Not enough position.",wrongMessage);
+    }
+
+    @Test
+    void should_return_rightTicket_when_parkingBoy_park_give_rightParkingTicket(){
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot(10);
+        Car car = new Car();
+        //when
+        ParkingTicket parkingTicket = parkingBoy.park(car,parkingLot);
+        //then
+        assertNotNull(parkingTicket);
     }
 
 
