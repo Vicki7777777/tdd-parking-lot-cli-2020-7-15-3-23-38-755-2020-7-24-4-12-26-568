@@ -6,25 +6,6 @@ import java.util.*;
 public class SmartParkingBoy extends ParkingBoy {
     private HashMap<ParkingLot, Integer> parkingLots = new HashMap<>();
 
-//    public ParkingTicket park(Car car) {
-//        ParkingTicket parkingTicket = null;
-//        boolean isParking = false;
-//        Integer maxCapacitance = getMaxCapacitance(parkingLots);
-//        for(ParkingLot parkingLotKey : parkingLots.keySet()){
-//            if(maxCapacitance.equals(parkingLots.get(parkingLotKey)) && parkingLotKey.checkCapacitance()){
-//                parkingTicket = parkingLotKey.putCar(car);
-//                isParking = true;
-//                parkingLots.put(parkingLotKey,parkingLotKey.getParkingSpace());
-//                return parkingTicket;
-//            }
-//            if(!isParking){
-//                parkingLotKey.checkCapacitanceMessage();
-//            }
-//
-//        }
-//        return parkingTicket;
-//    }
-
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = null;
         boolean isParking = false;
