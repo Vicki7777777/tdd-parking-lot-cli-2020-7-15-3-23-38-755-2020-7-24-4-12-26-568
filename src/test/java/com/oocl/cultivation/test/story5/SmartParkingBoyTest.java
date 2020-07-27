@@ -1,11 +1,7 @@
 package com.oocl.cultivation.test.story5;
 
-import com.oocl.cultivation.story5.Car;
-import com.oocl.cultivation.story5.ParkingLot;
-import com.oocl.cultivation.story5.ParkingTicket;
-import com.oocl.cultivation.story5.SmartParkingBoy;
+import com.oocl.cultivation.story5.*;
 import org.junit.jupiter.api.Test;
-import sun.security.krb5.internal.Ticket;
 
 import static org.junit.jupiter.api.Assertions.*;
 

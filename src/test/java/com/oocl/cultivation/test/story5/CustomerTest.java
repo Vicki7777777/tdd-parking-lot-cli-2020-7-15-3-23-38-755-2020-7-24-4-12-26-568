@@ -1,10 +1,8 @@
 package com.oocl.cultivation.test.story5;
 
-
 import com.oocl.cultivation.story4.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CustomerTest {
