@@ -50,4 +50,16 @@ public class ParkingLotBoyTest {
         assertEquals(car,carTest);
     }
 
+    @Test
+    void should_return_wrongMessage_when_parkingBoy_given_nullTicket(){
+        //given
+        ParkingLot parkingLot = new ParkingLot(10);
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket parkingTicket = null;
+        //when
+        parkingBoy.fetch(parkingTicket,parkingLot);
+        String message = parkingBoy.checkTicketMessage(parkingTicket);
+        //then
+        assertEquals("Please provide your parking ticket.",message);
+    }
 }
