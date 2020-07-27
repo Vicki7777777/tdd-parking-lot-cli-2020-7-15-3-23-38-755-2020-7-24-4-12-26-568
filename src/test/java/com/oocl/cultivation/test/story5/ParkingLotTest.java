@@ -3,8 +3,7 @@ package com.oocl.cultivation.test.story5;
 import com.oocl.cultivation.story5.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
     @Test
@@ -37,5 +36,16 @@ public class ParkingLotTest {
         ParkingTicket parkingTicket = parkingLot.putCar(new Car());
         //then
         assertNull(parkingTicket);
+    }
+
+    @Test
+    void  should_return_true_when_isCarExite_given_carExit(){
+        //given
+        ParkingLot parkingLot = new ParkingLot(10);
+        Car car = new Car();
+        //when
+        parkingLot.putCar(car);
+        //then
+        assertTrue(parkingLot.isCarExist(car));
     }
 }
