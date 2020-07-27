@@ -62,4 +62,20 @@ public class ParkingLotBoyTest {
         //then
         assertEquals("Please provide your parking ticket.",message);
     }
+
+    @Test
+    void should_return_wrongMessage_when_parkingBoy_given_usedTicket(){
+        //given
+        Car car = new Car();
+        ParkingLot parkingLot = new ParkingLot(10);
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket parkingTicket = parkingBoy.park(car,parkingLot);
+        //when
+        parkingBoy.fetch(parkingTicket,parkingLot);
+        parkingBoy.fetch(parkingTicket,parkingLot);
+        String message = parkingBoy.checkTicketMessage(parkingTicket);
+        //then
+        assertEquals("Unrecognized parking ticket.",message);
+    }
+
 }
