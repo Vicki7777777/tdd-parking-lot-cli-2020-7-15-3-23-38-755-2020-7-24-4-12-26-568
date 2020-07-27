@@ -37,7 +37,7 @@ public class CustomerTest {
     }
 
     @Test
-    void should_return_rightCar_whenCustomer_given_rightTicket(){
+    void should_return_rightCar_when_Customer_given_rightTicket(){
         //given
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         ParkingLot parkingLot = new ParkingLot(10);
@@ -50,4 +50,5 @@ public class CustomerTest {
         //then
         assertEquals(car,carTest);
     }
+
 }
