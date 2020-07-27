@@ -1,7 +1,6 @@
 package com.oocl.cultivation.story5;
 
 public class Customer {
-    Car customerCar = new Car();
 
     public ParkingTicket giveCar(Car car, SmartParkingBoy smartParkingBoy) {
         return smartParkingBoy.park(car);
